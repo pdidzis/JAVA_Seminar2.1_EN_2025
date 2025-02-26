@@ -80,10 +80,10 @@ public class Vehicle {
 	
 	public Vehicle() {
 		setId();
-		setTitle("ABS312");
-		setVehicleCode();		
+		setTitle("Test Vehicle");
 		setPrice(1341);
-		setEnergyType(EnergyType.gas);
+		setVehicleCode();
+		setEnergyType(EnergyType.other);
 	}
 	
 	//5. arg const.
@@ -101,7 +101,7 @@ public class Vehicle {
 	//6,to string
 	public String toString()
 	{
-		return " Id : " + id + " Title : " + title + " Vehicle Code : " + VehicleCode + " Price : " + price + " EnergyType : " + eType;
+		return " Id : " + id + ", Title : " + title + ", Vehicle Code : " + VehicleCode + ", Price : " + price + ", EnergyType : " + eType;
 	}
 	
 	
