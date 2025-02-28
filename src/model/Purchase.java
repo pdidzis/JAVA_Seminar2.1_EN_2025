@@ -53,15 +53,24 @@ public class Purchase {
 		return userCardNr + "bought " + shoppingList + " (" + dateTime.format(DateTimeFormatter.ISO_LOCAL_DATE) + " " + dateTime.getHour() +  ":" +dateTime.getMinute() + ":" + dateTime.getSecond() + ")";
 	}
 	
-	public void addVehicleToShoppingListByVehicleCode(String inputVehicleCode) throws Exception {
-		if(inputVehicleCode != null) {
+	public void addVehicleToShoppingListByVehicleCode(String inputVehicleCode, int quantity) throws Exception {
+		if(inputVehicleCode != null && quantity > 0 && quantity < 100) {
 			for(Vehicle tempV: MainService.getAllVehicles())
 			{
 				if(tempV.getVehicleCode().equals(inputVehicleCode)) 
 				{
-					//TODO need to be change after quantity implementation in Vehicle class
-					shoppingList.add(tempV);
-					MainService.getAllVehicles().remove(tempV);
+					if (tempV.getQuantity() >= quantity) 
+				
+					{
+						for(int i = 0; i < quantity; i++) {
+							shoppingList.add(tempV);
+							
+						}
+					
+						tempV.setQuantity(tempV.getQuantity() - quantity);
+						
+					} 
+					
 					
 					
 					
@@ -71,7 +80,7 @@ public class Purchase {
 		}
 		else 
 		{
-			throw new Exception ("Input param should be not null");
+			throw new Exception ("Input param should be not null and quantity should be 1 - 10");
 		}
 		
 	}
