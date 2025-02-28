@@ -53,7 +53,7 @@ public class Purchase {
 		return userCardNr + "bought " + shoppingList + " (" + dateTime.format(DateTimeFormatter.ISO_LOCAL_DATE) + " " + dateTime.getHour() +  ":" +dateTime.getMinute() + ":" + dateTime.getSecond() + ")";
 	}
 	
-	public void addVEhicleToShoppingListByVehicleCode(String inputVehicleCode) throws Exception {
+	public void addVehicleToShoppingListByVehicleCode(String inputVehicleCode) throws Exception {
 		if(inputVehicleCode != null) {
 			for(Vehicle tempV: MainService.getAllVehicles())
 			{

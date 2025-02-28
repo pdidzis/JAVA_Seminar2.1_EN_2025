@@ -33,8 +33,8 @@ public class Tractor extends Vehicle{
 	
 
 	public Tractor(String inputTitle, float inputPrice, EnergyType inputEnergyType,
-			String inputAdditionalTechniques, boolean inputIsOnlyLargeTires ) {
-		super(inputTitle, inputPrice, inputEnergyType);
+			String inputAdditionalTechniques, boolean inputIsOnlyLargeTires, int inputQuantity ) {
+		super(inputTitle, inputPrice, inputEnergyType, inputQuantity);
 		setAdditionalTechniques(inputAdditionalTechniques);
 		setIsOnlyLargeTires(inputIsOnlyLargeTires);
 	}

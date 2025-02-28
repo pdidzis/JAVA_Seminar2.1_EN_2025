@@ -8,6 +8,7 @@ public class Vehicle {
 	private String vehicleCode;
 	private float price;
 	private EnergyType eType;
+	private int quantity;
 	
 	private static int counter = 0;
 	//2.getters
@@ -27,8 +28,11 @@ public class Vehicle {
 		return eType;
 	}
 	
-	//3. setters
+	public int getQuantity() {
+		return quantity;
+	}
 	
+	//3. setters
 	public void setId()
 	{
 		id = counter++;
@@ -69,6 +73,18 @@ public class Vehicle {
 		}
 	}
 	
+	
+	public void setQuantity(int inputQuantity) {
+		if(inputQuantity > 0 && inputQuantity < 100) {
+			quantity = inputQuantity;
+		}
+		else
+		{
+			quantity = 1;
+		}
+	}
+	
+	
 	//4. no arg. constr.
 	public Vehicle()
 	{
@@ -77,18 +93,20 @@ public class Vehicle {
 		setPrice(100);
 		setVehicleCode();
 		setEnergyType(EnergyType.other);
+		setQuantity(1);
 	}
 	//5. arg. constr.
-	public Vehicle(String inputTitle, float inputPrice, EnergyType inputEnergyType ) {
+	public Vehicle(String inputTitle, float inputPrice, EnergyType inputEnergyType, int inputQuantity ) {
 		setId();
 		setTitle(inputTitle);
 		setPrice(inputPrice);
 		setVehicleCode();
 		setEnergyType(inputEnergyType);
+		setQuantity(inputQuantity);
 	}
 	//6. toString
 	public String toString() {
-		return id + ": " + title + ", " + price + " eur (" + vehicleCode + "), " + eType; 
+		return id + ": " + title + ", " + price + " eur (" + vehicleCode + "), " + eType + " " + quantity; 
 	}
 
 }

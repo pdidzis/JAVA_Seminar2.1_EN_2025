@@ -15,10 +15,11 @@ public class MainService {
 
 	public static void main(String[] args) {
 		Bus v1 = new Bus();
-		Bus v2 = new Bus("Large bus", 1000.99f, EnergyType.electric, 100, true);
+		Bus v2 = new Bus("Large bus", 1000.99f, EnergyType.electric, 100, true, 3);
 		
 		Tractor v3 = new Tractor();
-		Tractor v4 = new Tractor("Small tractor", 567.99f, EnergyType.diesel, "With cultivator", true);
+		Tractor v4 = new Tractor("Small tractor", 567.99f, 
+				EnergyType.diesel, "with cultivator", true, 5);
 		
 		allVehicles.addAll(Arrays.asList(v1, v2, v3, v4));
 		
@@ -30,17 +31,12 @@ public class MainService {
 		allPurchases.addAll(Arrays.asList(p1, p2));
 		System.out.println(allPurchases);
 		
-		
-		
-			
+
 	}
 
 	public static ArrayList<Vehicle> getAllVehicles() {
 		return allVehicles;
 	}
-	
-	
-	
-	
+
 	
 }

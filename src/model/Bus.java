@@ -35,8 +35,8 @@ public class Bus extends Vehicle{
 	}
 	
 	public Bus(String inputTitle, float inputPrice, EnergyType inputEnergyType,
-			int inputNumberOfSeats, boolean inputHasBaggageDivision) {
-		super(inputTitle, inputPrice, inputEnergyType);//it will call argument constructor from Vehicle
+			int inputNumberOfSeats, boolean inputHasBaggageDivision, int inputQuantity) {
+		super(inputTitle, inputPrice, inputEnergyType, inputQuantity);//it will call argument constructor from Vehicle
 		setNumberOfSeats(inputNumberOfSeats);
 		setHasBaggageDivision(inputHasBaggageDivision);
 		
