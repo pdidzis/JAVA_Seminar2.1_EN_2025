@@ -70,18 +70,40 @@ public class Purchase {
 						tempV.setQuantity(tempV.getQuantity() - quantity);
 						
 					} 
-					
-					
-					
-					
 				}
 			}
 			
 		}
 		else 
 		{
-			throw new Exception ("Input param should be not null and quantity should be 1 - 10");
+			throw new Exception ("Code param should be not null and quantity should be 1 - 10");
 		}
+		
+	}
+	
+	public void removeVehicleFromShoppingListByVehicleCode(String inputVehicleCode) throws Exception {
+		if(inputVehicleCode != null) 
+		{
+			for(Vehicle tempV : shoppingList) {
+				if(tempV.getVehicleCode().equals(inputVehicleCode)) {
+					for(Vehicle tempVV : MainService.getAllVehicles()) {
+						if(tempVV.getVehicleCode().equals(inputVehicleCode)) {
+							shoppingList.remove(tempV);
+							tempVV.setQuantity(tempVV.getQuantity()+1);
+							
+						}
+						
+					}
+				}
+			}
+			
+		}
+		else 
+		{
+			throw new Exception ("Code param should be not null");
+		}
+		
+		
 		
 	}
 	
