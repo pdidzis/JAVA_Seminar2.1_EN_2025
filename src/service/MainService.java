@@ -28,6 +28,7 @@ public class MainService {
 		Purchase p2 = new Purchase("AAA123456");
 		p2.getShoppingList().addAll(Arrays.asList(v2, v4));
 		allPurchases.addAll(Arrays.asList(p1, p2));
+		System.out.println(allPurchases);
 		
 		
 		

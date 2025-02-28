@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Purchase {
@@ -47,7 +48,7 @@ public class Purchase {
 	}
 	
 	public String toString() {
-		return userCardNr + "bought " + shoppingList + " (" + dateTime + ")";
+		return userCardNr + "bought " + shoppingList + " (" + dateTime.format(DateTimeFormatter.ISO_LOCAL_DATE) + " " + dateTime.getHour() +  ":" +dateTime.getMinute() + ":" + dateTime.getSecond() + ")";
 	}
 	
 }
