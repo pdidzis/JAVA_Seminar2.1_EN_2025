@@ -103,6 +103,23 @@ public class Purchase {
 			throw new Exception ("Code param should be not null");
 		}
 		
+	}
+	
+	public float calculateShoppingListValue() throws Exception {
+		if(shoppingList.isEmpty()) 
+		{
+			throw new Exception("Shopping list is empty");
+		}
+		float sum = 0;
+		
+		for(Vehicle tempV : shoppingList) {
+			sum = sum +tempV.getPrice();
+		}
+		
+		
+		
+		
+		return sum;
 		
 		
 	}
