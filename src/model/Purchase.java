@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+import service.MainService;
+
 public class Purchase {
 	// variables, getters, setters, both constructors, toString + other functions(if necessary)
 	private String userCardNr;
@@ -50,5 +52,33 @@ public class Purchase {
 	public String toString() {
 		return userCardNr + "bought " + shoppingList + " (" + dateTime.format(DateTimeFormatter.ISO_LOCAL_DATE) + " " + dateTime.getHour() +  ":" +dateTime.getMinute() + ":" + dateTime.getSecond() + ")";
 	}
+	
+	public void addVEhicleToShoppingListByVehicleCode(String inputVehicleCode) throws Exception {
+		if(inputVehicleCode != null) {
+			for(Vehicle tempV: MainService.getAllVehicles())
+			{
+				if(tempV.getVehicleCode().equals(inputVehicleCode)) 
+				{
+					//TODO need to be change after quantity implementation in Vehicle class
+					shoppingList.add(tempV);
+					MainService.getAllVehicles().remove(tempV);
+					
+					
+					
+				}
+			}
+			
+		}
+		else 
+		{
+			throw new Exception ("Input param should be not null");
+		}
+		
+	}
+	
+	
+	
+	
+	
 	
 }
