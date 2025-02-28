@@ -1,27 +1,24 @@
 package model;
 
 public class Vehicle {
+	//1. variables
+	private int id;
 	
-	//1.variables
-	private long id;
 	private String title;
-	private String VehicleCode;
+	private String vehicleCode;
 	private float price;
 	private EnergyType eType;
 	
-	private static long counter = 10000;
-	
-	
+	private static int counter = 0;
 	//2.getters
-	
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 	public String getTitle() {
 		return title;
 	}
 	public String getVehicleCode() {
-		return VehicleCode;
+		return vehicleCode;
 	}
 	public float getPrice() {
 		return price;
@@ -30,87 +27,68 @@ public class Vehicle {
 		return eType;
 	}
 	
-	//3.setters
+	//3. setters
 	
-	public void setId() {
-		id = counter;
-		counter++;
+	public void setId()
+	{
+		id = counter++;
 	}
 	
 	public void setTitle(String inputTitle) {
-		if(inputTitle!= null && inputTitle.matches("[A-Za-z ]{3-20}")) {
+		if(inputTitle != null && inputTitle.matches("[A-Za-z ]{3,20}")) {
 			title = inputTitle;
-			
 		}
-		else 
+		else
 		{
 			title = "No title";
 		}
 	}
 	
 	public void setVehicleCode() {
-		VehicleCode = id + "_" + title; 
-		
+		vehicleCode = id + "_" + title;
 	}
 	
 	
 	public void setPrice(float inputPrice) {
-		if(inputPrice > 0 && inputPrice < 1000000) {
-			price = inputPrice;
+		if(inputPrice > 0 && inputPrice < 100000) {
+			price  = inputPrice;
 		}
-		else 
+		else
 		{
 			price = 100;
 		}
-			
 	}
 	
 	public void setEnergyType(EnergyType inputEnergyType) {
 		if(inputEnergyType != null) {
 			eType = inputEnergyType;
 		}
-		else 
+		else
 		{
 			eType = EnergyType.not_specified;
 		}
 	}
 	
-	
-	//4.no arg. const.
-	
-	public Vehicle() {
+	//4. no arg. constr.
+	public Vehicle()
+	{
 		setId();
 		setTitle("Test Vehicle");
-		setPrice(1341);
+		setPrice(100);
 		setVehicleCode();
 		setEnergyType(EnergyType.other);
 	}
-	
-	//5. arg const.
-	
-	public Vehicle(String inputTitle,float inputPrice,EnergyType inputEnergyType ) {
+	//5. arg. constr.
+	public Vehicle(String inputTitle, float inputPrice, EnergyType inputEnergyType ) {
 		setId();
 		setTitle(inputTitle);
-		setVehicleCode();
 		setPrice(inputPrice);
+		setVehicleCode();
 		setEnergyType(inputEnergyType);
-		
-		
 	}
-	
-	//6,to string
-	public String toString()
-	{
-		return " Id : " + id + ", Title : " + title + ", Vehicle Code : " + VehicleCode + ", Price : " + price + ", EnergyType : " + eType;
+	//6. toString
+	public String toString() {
+		return id + ": " + title + ", " + price + " eur (" + vehicleCode + "), " + eType; 
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }
