@@ -27,8 +27,29 @@ public class MainService {
 		
 		Purchase p1 = new Purchase();
 		Purchase p2 = new Purchase("AAA123456");
-		p2.getShoppingList().addAll(Arrays.asList(v2, v4));
-		allPurchases.addAll(Arrays.asList(p1, p2));
+		//p2.getShoppingList().addAll(Arrays.asList(v2, v4));
+		//allPurchases.addAll(Arrays.asList(p1, p2));
+		System.out.println("-------------------PURCHASE TESTING-------------------");
+		try {
+			p2.addVehicleToShoppingListByVehicleCode("0_Test Vehicle", 1);
+			p2.addVehicleToShoppingListByVehicleCode("3_Small tractor", 2);
+			System.out.println("Shopping list: " + p2.getShoppingList());
+			System.out.println("Price of the shopping list: " + p2.calculateShoppingListValue() + " eur");
+			System.out.println("All vehicles at the moment: " +allVehicles);
+			
+			p2.removeVehicleFromShoppingListByVehicleCode("3_Small tractor");
+			System.out.println("Shopping list (without one small tractor): " + p2.getShoppingList());
+			System.out.println("Price of the shopping list(without one small tractor): " + p2.calculateShoppingListValue() + " eur");
+			System.out.println("All vehicles at the moment: " +allVehicles);
+			
+			
+			
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		System.out.println(allPurchases);
 		
 
